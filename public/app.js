@@ -56,7 +56,6 @@ function clearImage() {
   hideResults();
 }
 
-// ─── TEXT ANALYSIS ───────────────────────────────────────────────────────────
 async function analyzeText() {
   const text = document.getElementById('text-input').value.trim();
   if (text.length < 20) { showToast('Please enter at least 20 characters.', 'error'); return; }
@@ -81,7 +80,6 @@ async function analyzeText() {
   }
 }
 
-// ─── IMAGE ANALYSIS ──────────────────────────────────────────────────────────
 async function analyzeImage() {
   if (!selectedFile) { showToast('Please select an image first.', 'error'); return; }
 
@@ -104,7 +102,6 @@ async function analyzeImage() {
   }
 }
 
-// ─── RENDER RESULTS ──────────────────────────────────────────────────────────
 function renderResults(data) {
   const section = document.getElementById('results-section');
   const card = document.getElementById('result-card');
@@ -257,7 +254,6 @@ const style = document.createElement('style');
 style.textContent = `.btn-spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.75s linear infinite;display:inline-block;}`;
 document.head.appendChild(style);
 
-// ─── KEYBOARD SHORTCUT ───────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
     if (currentTab === 'text') analyzeText();
